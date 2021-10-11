@@ -1,0 +1,24 @@
+.body {
+  flex: 0.8;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+  background: linear-gradient(rgb(70, 52, 87), rgb(13, 2, 24));
+}
+
+.body_info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.body_infoText {
+  flex: 1;
+
+  h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
