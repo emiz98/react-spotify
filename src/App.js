@@ -9,7 +9,8 @@ import { useDataLayerValue } from "./DataLayer";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ token }, dispatch] = useDataLayerValue();
+  const [{ token, playlists }, dispatch] = useDataLayerValue();
+
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
@@ -36,7 +37,7 @@ function App() {
         });
       });
 
-      spotify.getPlaylist("5aHawERps0AMmMLU1KHvv6").then((response) => {
+      spotify.getPlaylist("37i9dQZF1DX4fpCWaHOned").then((response) => {
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
           discover_weekly: response,
@@ -46,7 +47,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className="app disable-select">
       {token ? <Player spotify={spotify} /> : <Login />}
     </div>
   );

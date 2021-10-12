@@ -15,7 +15,7 @@
   align-items: flex-end;
 
   img {
-    height: 20vw;
+    height: 15vw;
     margin: 0 20px;
     box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
   }
@@ -25,7 +25,8 @@
   flex: 1;
 
   h2 {
-    font-size: 48px;
+    font-size: 80px;
+    font-weight: 800;
     margin-bottom: 10px;
   }
   p {
@@ -35,6 +36,7 @@
 
 .body_songs {
   margin: 20px -30px;
+  background: linear-gradient(180deg, #1f003200, #222222);
   .body_icons {
     display: flex;
     align-items: center;
@@ -45,7 +47,9 @@
 
     .body__shuffle {
       font-size: 80px !important;
-      margin: 20px 0 20px 50px;
+      margin: 20px 20px 20px 50px;
+      color: rgb(0, 179, 0);
+      cursor: pointer;
 
       &:hover {
         transition: 200ms transform ease-in-out;
@@ -53,4 +57,8 @@
       }
     }
   }
+}
+
+.reacted {
+  color: rgb(211, 44, 44);
 }

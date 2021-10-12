@@ -1,4 +1,5 @@
 .header {
+  // position: fixed;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -22,8 +23,15 @@
 
 .header_right {
   display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px 5px 4px;
+  border-radius: 50px;
   align-items: center;
   > h4 {
-    margin-left: 10px;
+    margin-left: 8px;
+  }
+  .MuiAvatar-root {
+    width: 30px;
+    height: 30px;
   }
 }

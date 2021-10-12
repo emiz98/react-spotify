@@ -1,5 +1,10 @@
-import { Favorite, MoreHoriz, PlayCircleFilled } from "@material-ui/icons";
-import React from "react";
+import {
+  Favorite,
+  MoreHoriz,
+  PauseCircleFilled,
+  PlayCircleFilled,
+} from "@material-ui/icons";
+import React, { useState } from "react";
 import { useDataLayerValue } from "../../DataLayer";
 import Header from "../Header/Header";
 import SongRow from "../SongRow/SongRow";
@@ -7,6 +12,15 @@ import "./body.scss";
 
 const Body = ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
+  const [like, setLike] = useState(1);
+  const [play, setPlay] = useState(0);
+
+  const playFunc = () => {
+    setPlay(!play);
+  };
+  const likeFunc = () => {
+    setLike(!like);
+  };
 
   return (
     <div className="body">
@@ -21,13 +35,21 @@ const Body = ({ spotify }) => {
       </div>
       <div className="body_songs">
         <div className="body_icons">
-          <PlayCircleFilled className="body__shuffle" />
-          <Favorite fontSize="large" />
+          {play ? (
+            <PauseCircleFilled onClick={playFunc} className="body__shuffle" />
+          ) : (
+            <PlayCircleFilled onClick={playFunc} className="body__shuffle" />
+          )}
+
+          <Favorite
+            onClick={likeFunc}
+            fontSize="large"
+            className={like ? "reacted" : ""}
+          />
           <MoreHoriz />
         </div>
-        {/* Lists of songs */}
         {discover_weekly?.tracks.items.map((item) => (
-          <SongRow track={item.track} />
+          <SongRow key={item.id} track={item.track} />
         ))}
       </div>
     </div>
