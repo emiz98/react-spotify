@@ -11,6 +11,8 @@ const spotify = new SpotifyWebApi();
 function App() {
   const [{ token, playlists }, dispatch] = useDataLayerValue();
 
+  console.log(playlists);
+
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";

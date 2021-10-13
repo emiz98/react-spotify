@@ -7732,6 +7732,11 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.0"
 
+"jquery@^3.6.0":
+  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
+  "version" "3.6.0"
+
 "js-base64@^2.1.8":
   "integrity" "sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ=="
   "resolved" "https://registry.npmjs.org/js-base64/-/js-base64-2.6.4.tgz"
@@ -10661,6 +10666,11 @@
     "workbox-webpack-plugin" "5.1.4"
   optionalDependencies:
     "fsevents" "^2.1.3"
+
+"react-scroll-wheel-handler@^2.1.0":
+  "integrity" "sha512-pZPg+BJ7jlDNzQfQ2BFFhvBYkiNT8yDUKarLwzLcuEMgvqWlsJmickl2nBIAUn9iLzeZomaPY8AmVrra4SHuFg=="
+  "resolved" "https://registry.npmjs.org/react-scroll-wheel-handler/-/react-scroll-wheel-handler-2.1.0.tgz"
+  "version" "2.1.0"
 
 "react-spotify-player@^1.0.4":
   "integrity" "sha512-9iF9vgWqJC+SUaNxUWkD/DCKQ5BJZoeX31mh4KZdb60xhaVq9yaH+Lvq9HLNAUbS5BhhjLJLyGRo45A5qkzH3w=="

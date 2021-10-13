@@ -21,6 +21,7 @@ import ReactPlayer from "react-player";
 import { useDataLayerValue } from "../../DataLayer";
 // import SpotifyPlayer from "react-spotify-player";
 import axios, { Axios } from "axios";
+import $ from "jquery";
 
 const Footer = () => {
   const [{ nowPlaying, token }, dispatch] = useDataLayerValue();
@@ -28,7 +29,7 @@ const Footer = () => {
   const [player, setPlayer] = useState(null);
   const [play, setPlay] = useState(0);
   const [mute, setMute] = useState(0);
-  const [volume, setVolume] = useState(30);
+  const [volume, setVolume] = useState(10);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [seek, setSeek] = useState(0);
@@ -67,15 +68,29 @@ const Footer = () => {
       " mp3 audio";
     async function fetchData() {
       const req = await axios
-        .get(
-          `https://www.googleapis.com/youtube/v3/search?key=&type=video&part=snippet&maxResults=1&q=${que}`
-        )
+        .get(`https://yt-emiz.herokuapp.com/yt/api/v1/single/${que}`)
         .then((res) => {
-          setPlayer(res?.data.items[0].id.videoId);
+          setPlayer(res?.data.id);
         });
     }
-    // fetchData();
+    fetchData();
   }, [nowPlaying]);
+
+  const handleVolumeOnScroll = (event, newValue) => {
+    if (event.nativeEvent.wheelDelta > 0) {
+      if (volume <= 100) {
+        $(".body").css("overflow-y", "hidden");
+        setVolume(volume + 5);
+        $(".body").css("overflow-y", "overlay");
+      }
+    } else {
+      if (volume > 0) {
+        $(".body").css("overflow-y", "hidden");
+        setVolume(volume - 5);
+        $(".body").css("overflow-y", "overlay");
+      }
+    }
+  };
 
   return (
     <div className="footer">
@@ -90,8 +105,8 @@ const Footer = () => {
         />
         <ReactPlayer
           ref={ref}
-          // url={`https://www.youtube.com/watch?v=${player}`}
-          url={`https://www.youtube.com/watch?v=eyfwriqEuNA`}
+          url={`https://www.youtube.com/watch?v=${player}`}
+          // url={`https://www.youtube.com/watch?v=eyfwriqEuNA`}
           style={{ display: "none" }}
           playing={play}
           muted={mute}
@@ -157,7 +172,7 @@ const Footer = () => {
           <Grid item>
             {mute || volume == 0 ? (
               <VolumeOff onClick={muteFunc} className="footer__icon" />
-            ) : volume > 60 ? (
+            ) : volume > 50 ? (
               <VolumeUp onClick={muteFunc} className="footer__icon" />
             ) : (
               <VolumeDown onClick={muteFunc} className="footer__icon" />
@@ -169,7 +184,8 @@ const Footer = () => {
             aria-label="Volume"
             value={volume}
             onChange={volumeFunc}
-          />
+            onWheel={(event) => handleVolumeOnScroll(event)}
+          ></Slider>
         </Grid>
       </div>
     </div>
