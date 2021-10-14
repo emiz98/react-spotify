@@ -11,8 +11,6 @@ const spotify = new SpotifyWebApi();
 function App() {
   const [{ token, playlists }, dispatch] = useDataLayerValue();
 
-  console.log(playlists);
-
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
@@ -43,6 +41,10 @@ function App() {
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
           discover_weekly: response,
+        });
+        dispatch({
+          type: "SET_NOWPLAYING",
+          nowPlaying: response?.tracks.items[0].track,
         });
       });
     }

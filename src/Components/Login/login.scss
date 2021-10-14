@@ -1,12 +1,9 @@
 .login {
   display: grid;
   place-items: center;
-  height: 100vh;
-  background-color: black;
-  img {
-    width: 75%;
-  }
+  margin-top: 20px;
   a {
+    margin-top: 4%;
     padding: 18px 20px;
     background-color: #1db954;
     font-weight: 700;
@@ -14,5 +11,86 @@
     border-radius: 100px;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+body {
+  background: #000000;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 90%;
+  margin: 200px auto 0 auto;
+  display: block;
+  max-width: 310px;
+}
+
+.name {
+  color: white !important;
+  margin: 0 0 0 2.25em;
+  font-size: 3rem;
+  z-index: -2;
+  position: relative;
+  top: -13px;
+  left: 10px;
+}
+
+.name::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  animation: slide 1s ease-in-out 3s forwards;
+}
+
+.icon {
+  display: inline-block;
+  transform: scale(1.4);
+  position: relative;
+  left: 100px;
+  width: 100px;
+  top: 70px;
+  animation: zoom-out 500ms ease 2s forwards, go-left 650ms ease 2.75s forwards;
+}
+
+.icon::before {
+  /* font-family: "Font Awesome 5 Brands";
+        content: "\f167"; */
+  position: absolute;
+  font-size: 5rem;
+  top: -15px;
+  left: 0;
+  /* color: red; */
+}
+
+.icon::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: white;
+  left: 28px;
+  top: 16px;
+  z-index: -1;
+}
+
+@keyframes slide {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes zoom-out {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes go-left {
+  to {
+    left: 0;
   }
 }

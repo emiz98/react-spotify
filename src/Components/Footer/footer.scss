@@ -6,7 +6,7 @@
   height: 65px;
   width: 100%;
   background-color: rgb(31, 31, 31);
-  padding: 8px;
+  padding: 8px 8px 8px 0;
 }
 
 .footer_left {
@@ -15,6 +15,13 @@
   align-items: center;
   color: white;
   max-width: 300px;
+
+  img {
+    position: relative;
+    z-index: 99;
+    padding-left: 8px;
+    background-color: #1f1f1f;
+  }
 }
 
 .footer_center {
@@ -68,17 +75,20 @@
   margin-right: 20px;
 }
 
-.footer__songInfo > h4 {
-  margin-bottom: 2px;
-}
-
-.footer__songInfo > p {
-  font-size: 12px;
+.footer__songInfo {
+  transition: 0.2s ease-in-out;
+  > h4 {
+    margin-bottom: 2px;
+  }
+  > p {
+    font-size: 12px;
+  }
 }
 
 .single_song_fav {
   margin-left: 22px !important;
   display: flex;
+  transition: 0.2s ease-in-out;
 
   .MuiSvgIcon-root {
     width: 20px !important;
@@ -130,4 +140,23 @@
   position: absolute;
   bottom: 15px;
   right: -55px;
+}
+
+.expand_cover {
+  position: absolute;
+  left: 46px;
+  top: 12px;
+  z-index: 100;
+
+  .MuiSvgIcon-root {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      transition: 0.2s ease-in-out;
+      background-color: rgb(80, 80, 80);
+    }
+  }
 }

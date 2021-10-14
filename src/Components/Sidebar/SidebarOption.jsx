@@ -10,7 +10,6 @@ const SidebarOption = ({ title, Icon, playListKey }) => {
   const [{ token }, dispatch] = useDataLayerValue();
 
   const playListFunc = () => {
-    console.log("ss");
     if (token) {
       spotify.setAccessToken(token);
       spotify.getPlaylist(playListKey).then((response) => {

@@ -30,3 +30,13 @@
     }
   }
 }
+
+.song_row_play {
+  margin-right: 20px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.5);
+  }
+}
