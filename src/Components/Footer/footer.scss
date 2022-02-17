@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   bottom: 0;
-  height: 65px;
+  height: 70px;
   width: 100%;
   background-color: rgb(31, 31, 31);
   padding: 8px 8px 8px 0;
@@ -73,10 +73,18 @@
   height: 60px;
   width: 60px;
   margin-right: 20px;
+  transition: 0.2s ease-in-out;
 }
 
 .footer__songInfo {
   transition: 0.2s ease-in-out;
+  display: flex;
+  align-content: center;
+  min-width: 350px;
+  max-width: 360px;
+  .xd {
+    flex-direction: column;
+  }
   > h4 {
     margin-bottom: 2px;
   }
@@ -86,7 +94,7 @@
 }
 
 .single_song_fav {
-  margin-left: 22px !important;
+  margin-left: 25px !important;
   display: flex;
   transition: 0.2s ease-in-out;
 
@@ -104,7 +112,7 @@
 .seek__slider {
   min-width: 100%;
   position: absolute;
-  bottom: -35px;
+  bottom: -20px;
   left: 0%;
   .css-187mznn-MuiSlider-root {
     color: gray !important;

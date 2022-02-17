@@ -16,7 +16,7 @@ const Sidebar = () => {
       type: "SET_EXPAND",
       expand: false,
     });
-    $(".single_song_fav").css("transform", "translateX(0)");
+    $(".footer__albumLogo").css("transform", "translateX(0)");
     $(".footer__songInfo").css("transform", "translateX(0)");
     $(".toogle_cover_playing").css("transform", "translate(0, 100%)");
   };

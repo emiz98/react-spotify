@@ -69,7 +69,7 @@ const Footer = () => {
       " mp3 audio";
     async function fetchData() {
       const req = await axios
-        .get(`https://yt-emiz.herokuapp.com/yt/api/v1/single/${que}`)
+        .get(`https://yt-scr-main.herokuapp.com/yt/api/v1/single/${que}`)
         .then((res) => {
           setPlayer(res?.data.id);
         });
@@ -98,8 +98,8 @@ const Footer = () => {
       type: "SET_EXPAND",
       expand: true,
     });
-    $(".single_song_fav").css("transform", "translateX(-240%)");
-    $(".footer__songInfo").css("transform", "translateX(-250px)");
+    $(".footer__albumLogo").css("transform", "translateX(-250px)");
+    $(".footer__songInfo").css("transform", "translateX(-80px)");
     $(".toogle_cover_playing").css("transform", "translate(0, 0)");
   };
 
@@ -124,7 +124,7 @@ const Footer = () => {
 
         <ReactPlayer
           ref={ref}
-          url={`https://www.youtube.com/watch?v=${player}`}
+          url={`https://www.youtube.com/embed/${player}?vq=small`}
           // url={`https://www.youtube.com/watch?v=eyfwriqEuNA`}
           style={{ display: "none" }}
           playing={play}
@@ -134,17 +134,20 @@ const Footer = () => {
           onDuration={(e) => handleDuration(e)}
         />
         <div className="footer__songInfo">
-          <h4>{nowPlaying?.name}</h4>
-          <p>
-            {nowPlaying == ""
-              ? ""
-              : nowPlaying?.artists.map((artist) => artist.name).join(", ")}
-          </p>
+          <div className="xd">
+            <h4>{nowPlaying?.name}</h4>
+            <p>
+              {nowPlaying == ""
+                ? ""
+                : nowPlaying?.artists.map((artist) => artist.name).join(", ")}
+            </p>
+          </div>
+
+          <span className="single_song_fav">
+            <FavoriteBorder />
+            <Block />
+          </span>
         </div>
-        <span className="single_song_fav">
-          <FavoriteBorder />
-          <Block />
-        </span>
       </div>
 
       <div className="footer_center">
