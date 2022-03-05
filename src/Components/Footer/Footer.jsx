@@ -68,11 +68,11 @@ const Footer = () => {
       nowPlaying?.artists?.map((artist) => artist?.name).join(", ") +
       " mp3 audio";
     async function fetchData() {
-      const req = await axios
-        .get(`https://yt-scr-main.herokuapp.com/yt/api/v1/single/${que}`)
-        .then((res) => {
-          setPlayer(res?.data.id);
-        });
+      // const req = await axios
+      //   .get(`urlFor/${que}`)
+      //   .then((res) => {
+      //     setPlayer(res?.data.id);
+      //   });
     }
     fetchData();
   }, [nowPlaying]);
